@@ -32,5 +32,5 @@ while True:
     time.sleep(1)
     main()
     # time.sleep(15)
-    time.sleep(10)
+    time.sleep(7200)
 client.run_until_disconnected()
