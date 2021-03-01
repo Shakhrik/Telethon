@@ -15,7 +15,7 @@ end = "17:00:00"
 
 def main():
     current_time = u.getCurrentTime()
-    if (current_time >= start and current_time <= end):
+    if (current_time >= start and current_time <= end) or (current_time == "15:00:00"):
         rows = postgres.dbReader(connection)
         message = ''
         for row in rows:
