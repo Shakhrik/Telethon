@@ -9,14 +9,13 @@ client = TelegramClient('anon', config.API_ID, config.API_HASH)
 connection =  postgres.dbConnection();
 print(connection)
 client.start()
-start = "10:10:00"
-end = "22:00:00"
+start = "03:00:00"
+end = "17:00:00"
 
 
 def main():
     current_time = u.getCurrentTime()
-    print("current time:", current_time)
-    if current_time >= start and current_time <= end:
+    if (current_time >= start and current_time <= end):
         rows = postgres.dbReader(connection)
         message = ''
         for row in rows:
@@ -27,7 +26,7 @@ def main():
         entity = client.get_entity(PeerChat(config.GROUP_ID))
         message = client.send_message(entity, message)
         print("Jo'natildi soat:", current_time)
-print("kevoti")
+
 while True:
     time.sleep(1)
     main()
