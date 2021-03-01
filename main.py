@@ -9,7 +9,7 @@ client = TelegramClient('anon', config.API_ID, config.API_HASH)
 connection =  postgres.dbConnection();
 print(connection)
 client.start()
-start = "16:10:00"
+start = "10:10:00"
 end = "22:00:00"
 
 
