@@ -17,7 +17,7 @@ end = "22:05:00"
 def main():
     current_time = u.getCurrentTime()
     print("Current time:",current_time)
-    if (current_time >= start and current_time <= end) or (current_time == "22:00:00" or current_time == "08:00:00"):
+    if (current_time >= start and current_time <= end) or (current_time == "22:00:00" or current_time == "08:00:00" or current_time == "10:00:00"):
         rows = postgres.dbReader(connection)
         message = f''
         for row in rows:
@@ -28,8 +28,11 @@ def main():
         entity = client.get_entity(PeerChannel(config.GROUP_ID))
         message = client.send_message(entity, message)
         print("Jo'natildi soat:", current_time)
+        return True
+    return False
 
 while True:
-    main()
-    time.sleep(7200)
+    res = main()
+    if res:
+        time.sleep(7200)
 client.run_until_disconnected()
