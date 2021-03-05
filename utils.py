@@ -4,7 +4,7 @@ def messageFormat(s):
     sub = 36 - len(s)
     just = ''
     for i in range(sub):
-        just += "-"
+        just += "--"
     return f"{s}{just}"
 
 
